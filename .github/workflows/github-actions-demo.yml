@@ -6,3 +6,4 @@ jobs:
     uses: ./.github/workflows/reusable_workflow.yml
     with:
       input_name: Run workflow reusable with input
+    secrets: inherit
