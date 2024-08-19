@@ -26,7 +26,6 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "This is an input ${{ inputs.input_name }}."
-      - run: echo "This is an topic ${{ inputs.topic_name }}."
       - run: echo "Secrete for my_secret ${{ secrets['MY_SECRET'] }}"
       - run: echo "Secrete for my_called_secret ${{ secrets['MY_CALLED_SECRET'] }}"
       - run: echo "Secrete for dc-health ${{ secrets.MY_CALLED_SECRET }}"
