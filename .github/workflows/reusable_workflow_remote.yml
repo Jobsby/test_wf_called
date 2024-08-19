@@ -14,9 +14,9 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     env:
-      GCP_SECRET: ${{ secrets[format('{0}', inputs.cumulus_gcp_json_key_identifier)] }}
+      GCP_SECRET: ${{ inputs.cumulus_gcp_json_key_identifier }}
     steps:
-      - run: echo $env.GCP_SECRET
+      - run: echo ${{ env.GCP_SECRET }}
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
@@ -32,5 +32,8 @@ jobs:
       - run: echo "Env GCP_SECRET= ${{ env.GCP_SECRET }}"
       - run: echo "Secrete for my_secret= ${{ secrets[format('{0}', inputs.cumulus_gcp_json_key_identifier)] }}."
       - run: echo "Input cumulus_gcp_json_key_identifier= ${{ inputs.cumulus_gcp_json_key_identifier }}."
+      - run: |
+          vDB_PASSWORD="${{ secrets[env.GCP_SECRET] }}"
+          echo "The database password retrieved dynamically is $vDB_PASSWORD"
 
       
