@@ -36,5 +36,8 @@ jobs:
           vDB_PASSWORD="${{ secrets[env.GCP_SECRET] }}"
           echo "The database password retrieved dynamically is $vDB_PASSWORD"
       - run: echo "MySecret= ${{ secrets.MY_SECRET }}."
+      - run: echo "MyCallerSecret= ${{ secrets.MY_CALLER_SECRET }}."
+
+      
 
       
