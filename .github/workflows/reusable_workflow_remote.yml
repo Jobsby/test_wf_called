@@ -29,8 +29,8 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "This is an input ${{ inputs.input_name }}."
-      - run: echo "Env GCP_SECRET ${{ env.GCP_SECRET }}"
-      - run: echo "Secrete for my_secret= ${{ secrets[env.GCP_SECRET] }}."
+      - run: echo "Env GCP_SECRET= ${{ env.GCP_SECRET }}"
+      - run: echo "Secrete for my_secret= ${{ secrets[format('{0}', inputs.cumulus_gcp_json_key_identifier)] }}."
       - run: echo "Input cumulus_gcp_json_key_identifier= ${{ inputs.cumulus_gcp_json_key_identifier }}."
 
       
