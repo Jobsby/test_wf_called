@@ -5,6 +5,10 @@ on:
         description: "Input name"
         required: true
         type: string
+      topic_name:
+        description: "Topic name"
+        required: true
+        type: string
       
 jobs:
   Explore-GitHub-Actions:
@@ -22,4 +26,11 @@ jobs:
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "This is an input ${{ inputs.input_name }}."
+      - run: echo "This is an topic ${{ inputs.topic_name }}."
+      - run: |
+          if [[ ${{ inputs.topic_name }} == 'dc-health' ]]; then
+            echo "Secrete for dc-health ${{ secrets.MY_SECRET }}"
+          else
+            echo "Secrete for iia ${{ secrets.MY_CALLED_SECRET }}"
+          fi
       
