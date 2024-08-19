@@ -5,7 +5,7 @@ on:
         description: "Input name"
         required: true
         type: string
-      topic_name:
+      cumulus_gcp_json_key_identifier:
         description: "Topic name"
         required: true
         type: string
@@ -27,12 +27,4 @@ jobs:
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "This is an input ${{ inputs.input_name }}."
       - run: echo "This is an topic ${{ inputs.topic_name }}."
-      - run: |
-          if [[ ${{ inputs.topic_name }} == 'iia' ]]; then
-            echo "Secrete for dc-health ${{ secrets.MY_SECRET }}"
-          elif [[ ${{ inputs.topic_name }} == 'dc-health' ]]; then
-            echo "Secrete for iia ${{ secrets.MY_CALLED_SECRET }}"
-          else
-            echo "Secrete for GCP not profided!"
-          fi
-      
+      - run: echo "Secrete for dc-health ${{ secrets['MY_SECRET'] }}"
