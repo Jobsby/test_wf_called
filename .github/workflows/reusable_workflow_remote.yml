@@ -30,7 +30,9 @@ jobs:
       - run: |
           if [[ ${{ inputs.topic_name }} == 'dc-health' ]]; then
             echo "Secrete for dc-health ${{ secrets.MY_SECRET }}"
-          else
+          if else [[ ${{ inputs.topic_name }} == 'dc-health' ]]; then
             echo "Secrete for iia ${{ secrets.MY_CALLED_SECRET }}"
+          else
+            echo "Secrete for other ${{ secrets.MY_CALLED_SECRET }}"
           fi
       
