@@ -9,8 +9,6 @@ on:
         description: "Topic name"
         required: true
         type: string
-    secrets:
-      envPAT: ${{ secrets.MY_CALLED_SECRET }}
       
 jobs:
   Explore-GitHub-Actions:
