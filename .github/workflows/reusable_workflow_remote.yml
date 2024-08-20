@@ -28,5 +28,9 @@ jobs:
         run: echo "Secrets my called secret = ${{ secrets[format('{0}', inputs.cumulus_gcp_json_key_identifier)] }}"
       - name: Check secretes 4
         run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
+      - name: Check secretes 5
+        run: echo "Secrets my called secret = ${{ secrets.GITHUB_TOKEN }}"
+
+        
   
       
