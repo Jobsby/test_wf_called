@@ -18,26 +18,17 @@ jobs:
       GCP_SECRET: ${{ secrets.ENV_SECRET }}
       GCP_SECRET_2: ${{ secrets.ENV_SECRET_2 }}
     steps:
-      - run: echo ${{ env.GCP_SECRET }}
-      - run: echo ${{ env.GCP_SECRET_2 }}
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
-        run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-      - run: echo "This is an input ${{ inputs.input_name }}."
-      - run: echo "Env GCP_SECRET= ${{ env.GCP_SECRET }}"
+      - run: echo "Input Parameter = ${{ inputs.input_name }}."
+      - run: echo "Env GCP_SECRET = ${{ env.GCP_SECRET }}"
       - run: echo "Env GCP_SECRET_2= ${{ env.GCP_SECRET_2 }}"
-      - run: |
-          echo ${{ inputs.input_name }} > ${{ env.RUNNER_TEMP }}/cumulus-gcp-key.json
-          echo "CUMULUS_GCP_KEY_FILE_PATH=${{ env.RUNNER_TEMP }}/cumulus-gcp-key.json" >> $GITHUB_ENV
-          echo "GitHub Env= $GITHUB_ENV"
+      - run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
+      
+     
 
 
       
