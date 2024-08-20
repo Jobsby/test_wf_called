@@ -13,9 +13,6 @@ on:
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
-    environment: REUSABLE
-    env:
-      GCP_SECRET: ${{ secrets.ENV_SECRET_2 }}
     steps:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
@@ -23,15 +20,15 @@ jobs:
       - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo "Input Parameter = ${{ inputs.input_name }}."
-      - run: echo "Env GCP_SECRET = ${{ env.GCP_SECRET }}"
       - run: echo "Secret env GCP_SECRET= ${{ secrets.GCP_SECRET }}"
-      - run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
-      - run: echo "Secrets my caller secret = ${{ secrets.MY_CALLER_SECRET }}"
-      
-      
-     
-
-
-      
-
+      - name: Check secretes called
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
+      - name: Check secretes caller
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: echo "Secrets my caller secret = ${{ secrets.MY_CALLER_SECRET }}"
+       
+  
       
