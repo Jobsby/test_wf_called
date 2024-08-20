@@ -10,8 +10,7 @@ on:
         required: true
         type: string
     secrets:
-      envPAT:
-        required: true
+      envPAT: ${{ secrets.MY_CALLED_SECRET }}
       
 jobs:
   Explore-GitHub-Actions:
