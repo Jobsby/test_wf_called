@@ -27,8 +27,8 @@ jobs:
         run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
       - name: Check secretes caller
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "Secrets my caller secret = ${{ secrets.MY_CALLER_SECRET }}"
+          MY_CALLED_SECRET: ${{ secrets.MY_CALLED_SECRET }}
+        run: echo "Secrets my caller secret = $MY_CALLED_SECRET"
        
   
       
