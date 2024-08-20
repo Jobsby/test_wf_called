@@ -27,6 +27,8 @@ jobs:
       - run: echo "Env GCP_SECRET = ${{ env.GCP_SECRET }}"
       - run: echo "Env GCP_SECRET_2= ${{ env.GCP_SECRET_2 }}"
       - run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
+      - run: echo "Secrets my caller secret = ${{ secrets.MY_CALLER_SECRET }}"
+      
       
      
 
