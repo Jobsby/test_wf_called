@@ -35,8 +35,8 @@ jobs:
       - run: echo "Env GCP_SECRET= ${{ env.GCP_SECRET }}"
       - run: echo "Env GCP_SECRET_2= ${{ env.GCP_SECRET_2 }}"
       - run: |
-          echo ${{ inputs.input_name }} > /tmp/cumulus-gcp-key.json
-          echo "CUMULUS_GCP_KEY_FILE_PATH=/tmp/cumulus-gcp-key.json" >> $GITHUB_ENV
+          echo ${{ inputs.input_name }} > ${{ runner.temp }}/tmp/cumulus-gcp-key.json
+          echo "CUMULUS_GCP_KEY_FILE_PATH=${{ runner.temp }}/tmp/cumulus-gcp-key.json" >> $GITHUB_ENV
           echo "GitHub Env= $GITHUB_ENV"
 
 
