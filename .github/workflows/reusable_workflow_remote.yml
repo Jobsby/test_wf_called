@@ -15,8 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: REUSABLE
     env:
-      GCP_SECRET: ${{ secrets.ENV_SECRET }}
-      GCP_SECRET_2: ${{ secrets.ENV_SECRET_2 }}
+      GCP_SECRET: ${{ secrets.ENV_SECRET_2 }}
     steps:
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
@@ -25,7 +24,7 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - run: echo "Input Parameter = ${{ inputs.input_name }}."
       - run: echo "Env GCP_SECRET = ${{ env.GCP_SECRET }}"
-      - run: echo "Env GCP_SECRET_2= ${{ env.GCP_SECRET_2 }}"
+      - run: echo "Secret env GCP_SECRET= ${{ secrets.GCP_SECRET }}"
       - run: echo "Secrets my called secret = ${{ secrets.MY_CALLED_SECRET }}"
       - run: echo "Secrets my caller secret = ${{ secrets.MY_CALLER_SECRET }}"
       
