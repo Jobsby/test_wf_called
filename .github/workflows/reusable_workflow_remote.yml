@@ -37,7 +37,7 @@ jobs:
       - run: |
           echo ${{ inputs.input_name }} > /tmp/cumulus-gcp-key.json
           echo "CUMULUS_GCP_KEY_FILE_PATH=/tmp/cumulus-gcp-key.json" >> $GITHUB_ENV
-          echo "GitHub Env= ${{ GITHUB_ENV }}"
+          echo "GitHub Env= $GITHUB_ENV"
 
 
       
