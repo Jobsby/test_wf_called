@@ -9,7 +9,7 @@ on:
         description: "Topic name"
         required: true
         type: string
-      
+permissions: read-all  
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
